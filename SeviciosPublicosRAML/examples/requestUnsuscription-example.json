@@ -1,0 +1,10 @@
+{
+    "empresa" : {
+      "id":"8002033525",
+      "nombre":"etb"
+    },
+    "servicio" : {
+      "id" : 1 ,
+      "nombre" : "telefonia"
+    }
+}

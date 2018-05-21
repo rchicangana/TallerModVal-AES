@@ -1,0 +1,27 @@
+{
+  "required" : true ,
+  "$schema" : "http://json-schema.org/draft-03/schema" ,
+  "type" : "object" ,
+  "properties" : {
+    "id" : {
+      "type" : "string" ,
+      "required" : false
+    } ,
+    "status" : {
+      "type" : "string" ,
+      "required" : true
+    } ,
+    "servicio" : {
+      "type" : "object" ,
+      "required" : true
+    } ,
+    "cliente":{
+        "type" : "object" ,
+        "required" : true
+    },
+    "factura" : {
+      "type" : "object" ,
+      "required" : true
+    }
+  }
+}

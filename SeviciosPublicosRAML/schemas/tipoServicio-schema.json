@@ -1,0 +1,31 @@
+{
+  "required" : true ,
+  "$schema" : "http://json-schema.org/draft-03/schema" ,
+  "type" : "object" ,
+  "properties" : {
+    "tipoServicio" : {
+      "type" : "object" ,
+      "required" : false ,
+      "properties" : {
+        "tipo" : {
+          "type":"string",
+          "required": true,
+          "description": "Puede ser REST O SOAP"
+        },
+        "endPoint" : {
+          "type" : "string" ,
+          "required" : true
+        },
+       "manejaCompensancion" :{
+          "type": "boolean",
+          "required" : true
+        },
+        "correoCompensacion" : {
+          "type" : "string",
+          "required" : false,
+          "description" : "Solo es requerido si no se maneja compensacion"
+        }
+      }
+    }
+  }
+}

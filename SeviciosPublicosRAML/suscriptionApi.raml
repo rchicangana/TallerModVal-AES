@@ -1,0 +1,57 @@
+#%RAML 0.8
+title: ServiciosPublicosAPI
+version: v1
+baseUri: http://api.serviciospublicos.com/suscriber/{version}/servicios/subscripcion
+schemas:
+  - servicio: !include schemas/servicio-schema.json
+  - tipoServicio: !include schemas/tipoServicio-schema.json
+  - empresa: !include schemas/empresa-schema.json
+  - requestSubscription: !include schemas/requestSubscription-schema.json
+  - requestunSubscription: !include schemas/requestunSubscription-schema.json
+  - responseSubscription: !include schemas/responseSubscription-schema.json
+
+/obtener/{id}:
+  get:
+    description: |
+      permite a ibtener una empresa
+    baseUriParameters:
+        id:
+          description: Corresponde al numero de identificacion de la empresa
+          type: number
+          required: true
+    responses:
+      200:
+        body:
+          application/json:
+            schema: responseSubscription
+            example: !include examples/responseSuscription-example.json
+
+/suscribirse:
+  post:
+    description: |
+      permite a registrar una nueva empresa de servicios publicos
+    body:
+      application/json:
+        schema: requestSubscription
+        example: !include examples/requestSubscription-example.json
+    responses:
+      200:
+        body:
+          application/json:
+            schema: responseSubscription
+            example: !include examples/responseSuscription-example.json
+/desuscribirse/{id}:
+  delete:
+    description: |
+      permite a dessucribirse  de servicios publicos
+    baseUriParameters:
+        id:
+          description: Corresponde al numero de identificacion de la empresa
+          type: number
+          required: true
+    responses:
+      200:
+        body:
+          application/json:
+            schema: responseSubscription
+            example: !include examples/responseSuscription-example.json

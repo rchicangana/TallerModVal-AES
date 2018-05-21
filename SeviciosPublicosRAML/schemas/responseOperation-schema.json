@@ -1,0 +1,23 @@
+{
+  "required" : true ,
+  "$schema" : "http://json-schema.org/draft-03/schema" ,
+  "type" : "object" ,
+  "properties" : {
+    "request_id" : {
+      "type" : "string" ,
+      "required" : false
+    } ,
+    "status" : {
+      "type" : "string" ,
+      "required" : true
+    } ,
+    "mensaje" : {
+      "type" : "string" ,
+      "required" : false
+    } ,
+    "saldo" : {
+      "type" : "number" ,
+      "required" : true
+    }
+  }
+}

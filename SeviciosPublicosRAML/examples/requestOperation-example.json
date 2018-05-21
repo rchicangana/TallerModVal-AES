@@ -1,0 +1,15 @@
+{
+  "status" : "200",
+  "servicio" : {
+      "id" : 1,
+      "nombre" : "Energia"
+  },
+  "cliente": {
+    "id" : 1,
+    "nombre" : "Ricardo Ch"
+  },
+  "factura" : {
+    "numero":1,
+    "valor" : 150000
+  }
+}

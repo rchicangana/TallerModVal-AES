@@ -1,0 +1,19 @@
+{
+  "required" : true ,
+  "$schema" : "http://json-schema.org/draft-03/schema" ,
+  "type" : "object" ,
+  "properties" : {
+    "empresa" : {
+      "type" : "object" ,
+      "required" : true
+    },
+    "tipoServicio" : {
+      "type" : "object" ,
+      "required" : true
+    },
+    "servicio" : {
+      "type" : "object" ,
+      "required" : true
+    }
+  }
+}

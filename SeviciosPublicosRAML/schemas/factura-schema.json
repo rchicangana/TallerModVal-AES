@@ -1,0 +1,22 @@
+{
+  "required" : true ,
+  "$schema" : "http://json-schema.org/draft-03/schema" ,
+  "type" : "object" ,
+  "properties" : {
+    "factura" : {
+      "type" : "object" ,
+      "required" : false ,
+      "properties" : {
+        "numero" : {
+          "type":"number",
+          "required": true,
+          "description": "numero de factura"
+        },
+        "valor" : {
+          "type" : "number" ,
+          "required" : true
+        }
+      }
+    }
+  }
+}

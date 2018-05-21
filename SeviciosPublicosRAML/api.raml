@@ -1,0 +1,52 @@
+#%RAML 0.8
+title: ServiciosPublicosAPI
+version: v1
+baseUri: http://api.serviciospublicos.com/pasarela/{version}/servicios/operaciones
+schemas:
+  - factura: !include schemas/factura-schema.json
+  - cliente: !include schemas/cliente-schema.json
+  - servicio: !include schemas/servicio-schema.json
+  - requestOperation: !include schemas/requestOperation-schema.json
+  - responseOperation: !include schemas/responseOperation-schema.json
+
+/consultar/{numeroFactura}:
+  get:
+    description: |
+        Permite consultar el saldo de una factura en una empresa de servicios publicos con convenio en el banco
+    baseUriParameters:
+      numeroFactura:
+        description: Corresponde al numero de la factura
+        type: number
+        required: true
+    responses:
+      200:
+        body:
+          application/json:
+            schema: responseOperation
+            example: !include examples/responseOperation-example.json
+/pagar:
+  post:
+    description: permite relizar el pago de una factura
+    body:
+      application/json:
+        schema: requestOperation
+        example: !include examples/requestOperation-example.json
+    responses:
+      200:
+        body:
+          application/json:
+            schema: responseOperation
+            example: !include examples/responseOperation-example.json
+/compensar:
+  delete:
+    description: Permite compensar una factura
+    body:
+      application/json:
+        schema: requestOperation
+        example: !include examples/requestOperation-example.json
+    responses:
+      200:
+        body:
+          application/json:
+            schema: responseOperation
+            example: !include examples/responseOperation-example.json

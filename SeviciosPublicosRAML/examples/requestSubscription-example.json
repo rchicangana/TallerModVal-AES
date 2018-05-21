@@ -1,0 +1,16 @@
+{
+    "empresa" : {
+      "id":"8002033525",
+      "nombre":"etb"
+    },
+    "tipoServicio" : {
+      "tipo" : "REST" ,
+      "endPoint" : "",
+      "manejaCompensancion":true,
+      "correoCompensacion":""
+    },
+    "servicio" : {
+      "id" : 1 ,
+      "nombre" : "telefonia"
+    }
+}
