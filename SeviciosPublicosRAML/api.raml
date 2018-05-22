@@ -9,7 +9,7 @@ schemas:
   - requestOperation: !include schemas/requestOperation-schema.json
   - responseOperation: !include schemas/responseOperation-schema.json
 
-/consultar/{numeroFactura}:
+/consultar/{empresa}/{numeroFactura}:
   get:
     description: |
         Permite consultar el saldo de una factura en una empresa de servicios publicos con convenio en el banco
@@ -17,6 +17,10 @@ schemas:
       numeroFactura:
         description: Corresponde al numero de la factura
         type: number
+        required: true
+      empresa:
+        description: Corresponde al id de la empresa
+        type: string
         required: true
     responses:
       200:

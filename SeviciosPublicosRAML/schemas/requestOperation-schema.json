@@ -11,17 +11,17 @@
       "type" : "string" ,
       "required" : true
     } ,
-    "servicio" : {
-      "type" : "object" ,
-      "required" : true
-    } ,
-    "cliente":{
+    "empresa":{
         "type" : "object" ,
         "required" : true
     },
     "factura" : {
       "type" : "object" ,
       "required" : true
+    },
+    "operation": {
+      "type" : "string",
+      "required" : false
     }
   }
 }

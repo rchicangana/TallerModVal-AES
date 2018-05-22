@@ -4,12 +4,14 @@
       "id" : 1,
       "nombre" : "Energia"
   },
-  "cliente": {
+  "empresa": {
     "id" : 1,
-    "nombre" : "Ricardo Ch"
+    "nombre" : "Etb"
   },
   "factura" : {
     "numero":1,
     "valor" : 150000
-  }
+  },
+  "operation":"consultar"
+
 }
