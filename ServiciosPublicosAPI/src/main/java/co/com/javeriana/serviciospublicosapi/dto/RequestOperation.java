@@ -14,8 +14,9 @@ public class RequestOperation {
     private String id;
     private String status;
     private Servicio servicio;
-    private Cliente cliente;
+    private Empresa empresa;
     private Factura factura;
+    private String operation;
 
     public String getId() {
         return id;
@@ -41,13 +42,23 @@ public class RequestOperation {
         this.servicio = servicio;
     }
 
-    public Cliente getCliente() {
-        return cliente;
+    public Empresa getEmpresa() {
+        return empresa;
     }
 
-    public void setCliente(Cliente cliente) {
-        this.cliente = cliente;
+    public void setEmpresa(Empresa empresa) {
+        this.empresa = empresa;
     }
+
+    public String getOperation() {
+        return operation;
+    }
+
+    public void setOperation(String operation) {
+        this.operation = operation;
+    }
+
+    
 
     public Factura getFactura() {
         return factura;
