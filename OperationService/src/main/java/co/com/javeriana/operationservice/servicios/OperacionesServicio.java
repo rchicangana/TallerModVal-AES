@@ -44,9 +44,9 @@ public class OperacionesServicio {
     }
     
     @DELETE
-    @Path("compensar")
-    public ResponseOperation compensar(RequestOperation operation){
-        return operacionesLogica.compensar(operation);
+    @Path("compensar/{idEmpresa}/{numeroFactura}")
+    public ResponseOperation compensar(@PathParam("idEmpresa") String idEmpresa, @PathParam("numeroFactura") Integer numeroFactura){
+        return operacionesLogica.compensar(numeroFactura,idEmpresa);
     }
     
     

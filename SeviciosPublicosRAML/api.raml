@@ -41,13 +41,18 @@ schemas:
           application/json:
             schema: responseOperation
             example: !include examples/responseOperation-example.json
-/compensar:
+/compensar/{empresa}/{numeroFactura}:
   delete:
     description: Permite compensar una factura
-    body:
-      application/json:
-        schema: requestOperation
-        example: !include examples/requestOperation-example.json
+    baseUriParameters:
+      numeroFactura:
+        description: Corresponde al numero de la factura
+        type: number
+        required: true
+      empresa:
+        description: Corresponde al id de la empresa
+        type: string
+        required: true
     responses:
       200:
         body:

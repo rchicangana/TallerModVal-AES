@@ -3,3 +3,6 @@
 /RedisTest/target/
 /RedisServiceClient/target/
 /OperationService/target/
+/IntermediateRoutingService/target/
+/SoapClient/target/
+/RestClient/target/

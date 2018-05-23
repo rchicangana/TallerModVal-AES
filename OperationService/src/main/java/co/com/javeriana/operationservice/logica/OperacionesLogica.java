@@ -61,6 +61,7 @@ public class OperacionesLogica {
     public ResponseOperation pagar(RequestOperation operation){
          try {
              String id = UUID.randomUUID().toString();
+             operation.setId(id);
              operation.setOperation("PAGAR");
              Gson g = new Gson();
              String host = props.getString("host");
@@ -73,10 +74,19 @@ public class OperacionesLogica {
          return null;
     }
     
-    public ResponseOperation compensar(RequestOperation operation){
+    public ResponseOperation compensar(Integer numeroFactura, String idEmpresa){
          try {
+             RequestOperation operation = new RequestOperation();
              String id = UUID.randomUUID().toString();
+             operation.setId(id);
              operation.setOperation("COMPENSAR");
+             Factura factura = new Factura();
+             factura.setValor(Double.valueOf("0"));
+             factura.setNumero(numeroFactura);
+             Empresa empresa= new Empresa();
+             empresa.setId(idEmpresa);
+             operation.setEmpresa(empresa);
+             operation.setFactura(factura);
              Gson g = new Gson();
              String host = props.getString("host");
              String port = props.getString("port");

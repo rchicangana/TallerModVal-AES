@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<catalog xmlns="urn:oasis:names:tc:entity:xmlns:xml:catalog" prefer="system">
+    <system systemId="http://35.185.30.69:7070/w1-soap-svr/PagosServiceService?wsdl" uri="wsdl/35.185.30.69_7070/w1-soap-svr/PagosServiceService.wsdl"/>
+    <system systemId="http://35.185.30.69:7070/w1-soap-svr/PagosServiceService?wsdl=1" uri="wsdl/35.185.30.69_7070/w1-soap-svr/PagosServiceService.wsdl_1.wsdl"/>
+    <system systemId="http://35.185.30.69:7070/w1-soap-svr/PagosServiceService?xsd=1" uri="wsdl/35.185.30.69_7070/w1-soap-svr/PagosServiceService.xsd_1.xsd"/>
+</catalog>

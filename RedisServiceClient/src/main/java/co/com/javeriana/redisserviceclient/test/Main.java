@@ -39,7 +39,7 @@ public class Main {
     
     private static void desregistrar(RedisClient cliente){
         try {
-            String datos = cliente.desregistrar(1);
+            String datos = cliente.desregistrar(123456);
             System.out.println("salida =======================> "+datos);
             
         } catch (ErrorConsultaException ex) {
@@ -49,7 +49,7 @@ public class Main {
     
     private static void consultar(RedisClient cliente){
         try {
-            String datos = cliente.obtener(1);
+            String datos = cliente.obtener(123456);
             System.out.println("salida =======================> "+datos);
             
         } catch (ErrorConsultaException ex) {
