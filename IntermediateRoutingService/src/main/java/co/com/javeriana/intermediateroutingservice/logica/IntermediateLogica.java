@@ -8,6 +8,8 @@ package co.com.javeriana.intermediateroutingservice.logica;
 import co.com.javeriana.redisserviceclient.api.RedisClient;
 import co.com.javeriana.redisserviceclient.impl.RedisClientBuilder;
 import co.com.javeriana.redisserviceclient.impl.exceptions.ErrorConsultaException;
+import co.com.javeriana.restclient.api.RestClient;
+import co.com.javeriana.restclient.impl.RestClientBuilder;
 import co.com.javeriana.serviciospublicosapi.dto.RequestOperation;
 import co.com.javeriana.serviciospublicosapi.dto.RequestSuscription;
 import co.com.javeriana.serviciospublicosapi.dto.ResponseOperation;
@@ -45,6 +47,16 @@ public class IntermediateLogica {
         return clienteValImp;
     }
     
+    private RestClient getClienteRest() {
+        final RestClientBuilder builder = new RestClientBuilder();
+        final RestClient clienteValImp = builder
+                .setServidor("35.185.30.69")
+                .setPuerto(6060)
+                .setContexto("servicios/pagos/")
+                .build();
+        return clienteValImp;
+    }
+    
     @Asynchronous
     public void routing(RequestOperation operation){
         Gson g = new Gson();
@@ -70,7 +82,7 @@ public class IntermediateLogica {
                     ClienteSoap cliente = new ClienteSoap();
                     salida = cliente.consultar(operation);
                 } else {
-                    
+                    salida = getClienteRest().consultar(operation.getFactura().getNumero(), Integer.BYTES);
                 }
             }
             if("PAGAR".equals(operation.getOperation())){
@@ -78,7 +90,7 @@ public class IntermediateLogica {
                     ClienteSoap cliente = new ClienteSoap();
                     salida = cliente.pagar(operation);
                 } else {
-                    
+                    salida = getClienteRest().pagar(operation);
                 }
                 
             }
@@ -87,7 +99,7 @@ public class IntermediateLogica {
                     ClienteSoap cliente = new ClienteSoap();
                     salida = cliente.compensar(operation);
                 } else {
-                    
+                    salida = getClienteRest().compensar(operation.getFactura().getNumero(), Integer.BYTES);
                 }
                 
             }

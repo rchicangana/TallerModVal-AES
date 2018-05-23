@@ -1,0 +1,5 @@
+docker stop intermediateroutingservice
+docker rm intermediateroutingservice
+docker rmi intermediateroutingservice
+
+

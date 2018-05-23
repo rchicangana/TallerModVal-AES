@@ -40,7 +40,7 @@ public class RestClientImpl implements RestClient {
 
     private final Client client;
     private final WebTarget target;
-    private static final String PATH = "/payments/";
+    private static final String PATH = "/payments";
     
 
     private final static Logger LOG = Logger.getLogger(RestClientImpl.class.getName());
@@ -91,7 +91,7 @@ public class RestClientImpl implements RestClient {
 
     @Override
     public ResponseOperation consultar(Integer numeroFactura, Integer idEmpresa) throws ErrorConsultaException {
-        final Invocation.Builder requestBuilder = target.path(PATH + numeroFactura).request();
+        final Invocation.Builder requestBuilder = target.path(PATH+"/" + numeroFactura).request();
         final Response resp = requestBuilder.get();
         Factura respuesta = resp.readEntity(Factura.class);
         ResponseOperation salida = new ResponseOperation();
@@ -102,7 +102,7 @@ public class RestClientImpl implements RestClient {
 
     @Override
     public ResponseOperation pagar(RequestOperation operation) throws ErrorConsultaException {
-        final Invocation.Builder requestBuilder = target.path(PATH + "pagar/"+operation.getFactura().getNumero()).request();
+        final Invocation.Builder requestBuilder = target.path(PATH+"/" + operation.getFactura().getNumero()).request();
         Factura factura = new Factura();
         factura.setIdFactura(operation.getFactura().getNumero());
         factura.setValorFactura(operation.getFactura().getValor());
@@ -116,7 +116,10 @@ public class RestClientImpl implements RestClient {
 
     @Override
     public ResponseOperation compensar(Integer numeroFactura, Integer idEmpresa) throws ErrorConsultaException {
-        final Invocation.Builder requestBuilder = target.path(PATH + "compensar/"+numeroFactura).request();
+        final Invocation.Builder requestBuilder = target.path(PATH+"/" + numeroFactura).request();
+        Factura factura = new Factura();
+        factura.setIdFactura(numeroFactura);
+        factura.setValorFactura(0.0);
         final Response resp = requestBuilder.delete();
         Resultado resultado = resp.readEntity(Resultado.class);
         ResponseOperation salida = new ResponseOperation();
